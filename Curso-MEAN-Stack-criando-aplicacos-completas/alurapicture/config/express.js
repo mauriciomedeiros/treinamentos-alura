@@ -1,9 +1,12 @@
 var express = require('express');
 var consign = require('consign');
 var app = express();
+var bodyParser = require('body-parser');
 
 
 app.use(express.static('./public'));
+
+app.use(bodyParser.json());
 
 consign({cwd: 'app'})
    .include('api')

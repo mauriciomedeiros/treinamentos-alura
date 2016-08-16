@@ -2,9 +2,9 @@ var api = {};
 
 api.lista = function(req, res){
    var grupos = [
-      {id: 1, nome: 'esportes'},
-      {id: 2, nome: 'lugares'},
-      {id: 3, nome: 'animais'}
+      {_id: 1, nome: 'esportes'},
+      {_id: 2, nome: 'lugares'},
+      {_id: 3, nome: 'animais'}
    ];
 
    res.json(grupos);
