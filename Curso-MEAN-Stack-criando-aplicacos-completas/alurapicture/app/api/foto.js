@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 var api = {};
 
+var model = mongoose.model('Foto');
+
 api.lista = function(req, res){
-
-   var model = mongoose.model('Foto');
-
    model.find({})
          .then(function(fotos){
             res.json(fotos);
@@ -15,20 +14,19 @@ api.lista = function(req, res){
 };
 
 api.buscaPorId = function(req, res){
-   var model = mongoose.model('Foto');
-   model.findOne({_id: req.params.id})
+   model.findById(req.params.id)
       .then(function(foto){
+         if(!foto) throw Error('Foto não encontrada');
          res.json(foto);
       }, function(error){
          console.log(error);
-         res.status(500).json(error);
+         res.status(404).json(error);
       });
 };
 
 api.removePorId = function(req, res){
-   var model = mongoose.model('Foto');
    model.remove({_id: req.params.id})
-      .then(function(foto){
+      .then(function(){
          res.sendStatus(204);
       }, function(error){
          console.log(error);
@@ -37,11 +35,24 @@ api.removePorId = function(req, res){
 };
 
 api.adiciona = function(req, res){
-
+   var foto = req.body;
+   model.create(foto)
+      .then(function(foto){
+         res.json(foto);
+      }, function(error){
+         console.log(error);
+         res.status(500).json(error);
+      });
 };
 
 api.atualiza = function(req, res){
-
+   model.findByIdAndUpdate(req.params.id, req.body)
+      .then(function(foto){
+         res.json(foto);
+      }, function(error){
+         console.log(error);
+         res.status(500).json(error);
+      });
 };
 
 module.exports = api;
