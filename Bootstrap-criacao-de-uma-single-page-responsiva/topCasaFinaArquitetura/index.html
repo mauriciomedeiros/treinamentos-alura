@@ -149,6 +149,53 @@
          </div>
       </section>
 
+      <section class="container">
+         <h2>Vídeo Institucional</h2>
+         <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/udTt2xX4xHw" frameborder="0" allowfullscreen></iframe>
+         </div>
+      </section>
+
+      <section class="container">
+         <h2>Contato</h2>
+         <p>Entre em contato conosco</p>
+         <form>
+            <div class="form-group">
+               <label for="contato-nome">Nome:</label>
+               <input class="form-control" type="text" id="contato-nome" placeholder="Seu nome">
+            </div>
+            <div class="form-group">
+               <label for="contato-email">Email:</label>
+               <div class="input-group">
+                  <div class="input-group-addon">@</div>
+                  <input class="form-control" type="email" id="contato-email" placeholder="Seu email">
+               </div>
+            </div>
+
+            <div class="grupo-radio">
+               <div class="radio">
+                  <label>
+                     <input type="radio" name="tipo-pessoa" checked>
+                     Pessoa Física
+                  </label>
+               </div>
+               <div class="radio">
+                  <label>
+                     <input type="radio" name="tipo-pessoa">
+                     Pessoa Jurídica
+                  </label>
+               </div>
+            </div><!--
+
+            --><select class="contato-select form-control">
+                  <option disabled selected>Tipo de Situação</option>
+                  <option>Casa</option>
+                  <option>Apartamento</option>
+                  <option>Mansão</option>
+               </select>
+         </form>
+      </section>
+
       <script src="lib/jquery/jquery.js"></script>
    	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
    </body>
